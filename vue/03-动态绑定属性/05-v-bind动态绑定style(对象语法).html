@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id='app'>
+    <!-- <h2 :sytle="{key(属性名)：value(属性值)}">{{message}}</h2> -->
+    <!-- 50px必须加单引号，否则当作一个变量 -->
+    <!-- <h2 :style="{fontSize : '20px'}">{{message}}</h2> -->
+    <h2 :style="{fontSize : finalSize +'px',color:finalColor}">{{message}}</h2>
+    <h2 :style="getStyles()">{{message}}</h2>
+  </div>
+  <script src='../js/vue.js'></script>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        message: 'Hello Vue!',
+        finalSize: 100,
+        finalColor:'red'
+      },
+      methods:{
+        getStyles:function(){
+          return {fontSize : this.finalSize +'px',color:this.finalColor}
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

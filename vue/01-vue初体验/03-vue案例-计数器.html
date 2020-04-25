@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <h2>当前计数：{{counter}}</h2>
+        <!-- <button v-on:click="counter++">+</button>
+        <button v-on:click="counter--">-</button> -->
+        <button @click="add">+</button>
+        <button @click="sub">-</button>
+    </div>
+    <script src="../js/vue.js"></script>
+    <script>
+        const obj = {
+            counter: 0
+        };
+        const app = new Vue({
+            el: '#app',
+            data: obj,
+            methods: {
+                add: function () {
+                    console.log("add被执行");
+                    this.counter++;
+                },
+                sub: function () {
+                    console.log("sub被执行");
+                    this.counter--;
+                }
+            },
+            beforeCreate: function () {
+                //创建实例之前执行的钩子事件
+                console.log("beforeCreate");
+
+            },
+            created: function () {
+                //实例创建完成后执行的钩子
+                console.log("created");
+
+            },
+            beforemount: function () {
+                //将编译完成的html挂载到对应虚拟dom时触发的钩子
+                //此时页面没有内容
+                console.log("beforemount");
+            },
+            mounted: function () {
+                //编译好的html挂载到页面完成后执行的事件钩子，此钩子函数中一般会做一些ajax请求获取数据进行数据初始化
+                //mounted在整个实例中只执行一次
+                console.log("mounted");
+            },
+            beforeUpdate: function () {
+                //数据更新之前的钩子
+                console.log("beforeUpdate");
+            },
+            updated: function () {
+                //数据更新完之后
+                console.log("Updated");
+            },
+            beforeDestroy: function () {
+                //销毁之前
+                console.log("beforeDestroy");
+            },
+            destroyed: function () {
+                //真正销毁
+                console.log("destroyed");
+            }
+        })
+    </script>
+</body>
+
+</html>

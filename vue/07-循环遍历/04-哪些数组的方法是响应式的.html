@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id='app'>
+    <ul>
+      <li v-for="item in letters">{{item}}</li>
+    </ul>
+    <button @click="btnClick">按钮</button>
+  </div>
+  <script src='../js/vue.js'></script>
+  <script>
+    const app = new Vue({
+      el:'#app',
+      data:{
+        letters:['A','B','C','D','E']
+      },
+      methods:{
+        btnClick(){
+          //1.push方法
+          // this.letters.push('aaa');
+          // this.letters.push('aaa','bbb','ccc')
+
+          //2.pop():删除数组中的最后一个元素
+          //this.letters.pop();
+
+          //3.shift():删除数组中的第一个元素
+          //this.letters.shift();
+
+          //4.unshift():在数组最前面添加元素
+          // this.letters.unshift('aaa');
+          // this.letters.unshift('aaa','bbb','ccc')
+
+          //5.splice作用:删除元素/插入元素/替换元素
+          //删除元素：第二个参数传入你要删除几个元素(如果没传就删除后面所有元素)
+          //splice(start)
+          // const start = 2
+          // this.letters.splice(2,this.letters.length-start);
+          
+          //通过索引值修改数组中的元素 无法做到响应式
+          //this.letters[0] = 'pppp'
+        }
+      }
+    })
+  </script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id='app'>
+    <span v-if="isUer">
+      <label for="username">用户账号</label>
+      <input type="text" id="username" placeholder="用户帐号" key="username">
+    </span>
+    <span v-else>
+      <label for="email">用户邮箱</label>
+      <input type="text" id="email" placeholder="用户邮箱" key="email">
+    </span>
+    <button @click="handleToggle">切换类型</button>
+  </div>
+  <script src='../js/vue.js'></script>
+  <script>
+    const app = new Vue({
+      el:'#app',
+      data:{
+        isUer:true
+      },
+      methods:{
+        handleToggle(){
+          this.isUer = !this.isUer;
+        }
+      }
+    })
+  </script>
+</body>
+</html>

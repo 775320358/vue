@@ -53,9 +53,9 @@
           
           //注意：通过索引值修改数组中的元素 无法做到响应式
           //this.letters[0] = 'pppp'
-          // this.letters.splice(0,1,'aaa')
+          // this.letters.splice(0,1,'aaa')   这种方法可以响应式 建议使用这种方法
           //set(要修改的对象，索引值，修改后的值)
-          Vue.set(this.letters,0,'aaa')
+          Vue.set(this.letters,0,'aaa');//这种方法是vue自带的 不太建议
         }
       }
     })
